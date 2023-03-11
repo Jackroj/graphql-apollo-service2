@@ -1,5 +1,5 @@
  graphql-apollo-service2
-Intial level setup for graphql using the fastify server
+Intial level setup for graphql using the apollo server
 
 ## Run application using following comment
 ```
