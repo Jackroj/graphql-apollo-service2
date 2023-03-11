@@ -1,4 +1,4 @@
- graphql-fastify-service1
+ graphql-apollo-service2
 Intial level setup for graphql using the fastify server
 
 ## Run application using following comment
@@ -8,37 +8,47 @@ npm install
 ```
 npm run start
 ```
-Current running port is 3005
+Current running port is 3004
 
 Using the path will render the graphql-playground
 ``
-http://localhost:3005/graphiql
+http://localhost:3004
 ``
 
 ## sample query 
+paste inside  Operation area on playground 
+```
+query ($place: String!) {
+  location(place: $place) {
+    city
+    country
+    latitude
+    longitude
+    place
+  }
+}
+
+```
+## Inside Variables 
+set place param value inside Variables
 ```
 {
-  course(id: 3){
-    id
-    title
-    author
-    description
-    topic
-    url
-  }
+  "place": "Selaiyur"
 }
 ```
 ### expected output
 ```
 {
   "data": {
-    "course": {
-      "id": 3,
-      "title": "JavaScript: Understanding The Weird Parts",
-      "author": "Anthony Alicea",
-      "description": "An advanced JavaScript course for everyone! Scope, closures, prototypes, this, build your own framework, and more.",
-      "topic": "JavaScript",
-      "url": "https://codingthesmartway.com/courses/understand-javascript/"
-    }
-}   
+    "location": [
+      {
+        "city": "Chennai",
+        "country": "india",
+        "latitude": "3.0988732298",
+        "longitude": "0.328724",
+        "place": "Selaiyur"
+      }
+    ]
+  }
+}  
 ```
